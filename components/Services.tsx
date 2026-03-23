@@ -1,22 +1,22 @@
 'use client';
 
-import { Globe, PenTool, Layers } from 'lucide-react'; // Or use react-icons equivalents
+import { Server, ShoppingBag, Code2 } from 'lucide-react';
 
 const servicesData = [
   {
-    icon: <Globe size={40} strokeWidth={1.5} />,
-    title: "Brand Identity Design",
-    description: "Bentos gives you the blocks & kits you need to create a true website within minutes."
+    icon: <ShoppingBag size={40} strokeWidth={1.5} />,
+    title: "Shopify Development",
+    description: "Developing custom Shopify themes and optimizing e-commerce performance to drive traffic and increase conversion rates."
   },
   {
-    icon: <PenTool size={40} strokeWidth={1.5} />,
-    title: "Website Design",
-    description: "Bentos gives you the blocks & kits you need to create a true website within minutes."
+    icon: <Server size={40} strokeWidth={1.5} />,
+    title: "Backend & API Design",
+    description: "Engineering scalable RESTful APIs and microservices using Node.js and NestJS for robust, data-driven applications."
   },
   {
-    icon: <Layers size={40} strokeWidth={1.5} />,
-    title: "Application Design",
-    description: "Bentos gives you the blocks & kits you need to create a true website within minutes."
+    icon: <Code2 size={40} strokeWidth={1.5} />,
+    title: "Full-Stack Web Apps",
+    description: "Building high-performance, responsive web interfaces with React and TypeScript, focused on clean architecture and speed."
   }
 ];
 
@@ -30,14 +30,14 @@ const Services = () => {
         {/* Section Header */}
         <div className="text-center mb-16 relative">
           <div className="flex flex-col items-center">
-             {/* Small line and text matching the screenshot */}
+            {/* Small line and text matching the screenshot */}
             <div className="h-6 w-[1px] bg-gray-700 mb-2"></div>
             <p className="text-[#999999] text-[10px] uppercase tracking-[0.3em] font-bold mb-4">
-              Services
+              Expertise
             </p>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-            Quality Services
+            Specialized Services
           </h2>
         </div>
 
@@ -46,10 +46,10 @@ const Services = () => {
           {servicesData.map((service, index) => (
             <div 
               key={index} 
-              className="bg-[#161616] rounded-[30px] p-10 border border-gray-800/30 flex flex-col items-start transition-all duration-300 hover:border-gray-700 group"
+              className="bg-[#161616] rounded-[30px] p-10 border border-gray-800/30 flex flex-col items-start transition-all duration-300 hover:border-[#f06543] group"
             >
               {/* Icon container */}
-              <div className="text-[#999999] mb-8 group-hover:text-white transition-colors duration-300">
+              <div className="text-[#999999] mb-8 group-hover:text-[#f06543] transition-colors duration-300">
                 {service.icon}
               </div>
 
