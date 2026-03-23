@@ -3,13 +3,30 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FaFacebookF, FaXTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa6";
+import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa6";
 
 const Hero = () => {
-  // Updated skill set including Shopify, Next.js, Canva, and NestJS
   const techStack = [
     "Node.js", "React", "Next.js", "NestJS", "TypeScript", 
-    "Shopify", "PostgreSQL", "Docker", "Tailwind CSS", "Canva"
+    "Shopify", "PostgreSQL", "Docker", "Tailwind CSS", "Liquid"
+  ];
+
+  const socialLinks = [
+    { 
+      Icon: FaLinkedinIn, 
+      href: "https://linkedin.com/in/isaacudofia", 
+      label: "LinkedIn" 
+    },
+    { 
+      Icon: FaWhatsapp, 
+      href: "https://wa.me/2348105707657", 
+      label: "WhatsApp" 
+    },
+    { 
+      Icon: FaGithub, 
+      href: "https://github.com/isaacudofia", 
+      label: "GitHub" 
+    }
   ];
 
   return (
@@ -21,7 +38,7 @@ const Hero = () => {
           <div className="relative w-full aspect-square bg-[#f06543] rounded-[40px] overflow-hidden mb-8">
             <Image 
               src="/image 1.jpg" 
-              alt="Isaac Godwin Udofia" 
+              alt="Isaac Udofia" 
               fill
               className="object-cover brightness-110 object-top"
               priority 
@@ -29,28 +46,35 @@ const Hero = () => {
           </div>
           
           <h1 className="text-3xl font-bold mb-2 text-white">Isaac Udofia</h1>
-          <p className="text-[#999999] text-sm mb-8 tracking-tight">
-            Full-Stack Developer | JavaScript (Node.js/Nest.js) | Shopify Expert
+          <p className="text-[#999999] text-sm mb-8 tracking-tight leading-relaxed">
+            Full-Stack Developer | 3+ Years Experience <br />
+            Node.js & Shopify Expert
           </p>
           
           <div className="flex gap-4">
-            {[FaFacebookF, FaXTwitter, FaLinkedinIn, FaGithub].map((Icon, index) => (
-              <Link key={index} href="#" className="w-12 h-12 rounded-2xl bg-black border border-gray-800/50 flex items-center justify-center text-[#999999] hover:text-white hover:border-white transition-all">
-                <Icon size={18} />
+            {socialLinks.map((social, index) => (
+              <Link 
+                key={index} 
+                href={social.href} 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-2xl bg-black border border-gray-800/50 flex items-center justify-center text-[#999999] hover:text-white hover:border-[#f06543] hover:bg-[#f06543]/10 transition-all duration-300"
+              >
+                <social.Icon size={20} />
               </Link>
             ))}
           </div>
         </div>
 
-        {/* RIGHT SIDE: Two stacked cards */}
+        {/* RIGHT SIDE */}
         <div className="md:col-span-8 flex flex-col gap-6">
           
-          {/* TOP RIGHT CARD: Introduction */}
+          {/* TOP RIGHT CARD */}
           <div className="bg-[#121212] rounded-[40px] p-10 border border-gray-800/50 flex flex-col justify-center flex-grow">
             <p className="text-[#999999] uppercase tracking-[0.2em] text-[10px] font-bold mb-4">
-              Full-Stack Software Engineer
+              Frontend & Backend Software Engineer
             </p>
-            <h2 className="text-4xl md:text-5xl font-medium leading-[1.2] mb-6 text-white">
+            <h2 className="text-4xl md:text-5xl font-medium leading-[1.2] mb-6 text-white tracking-tight">
               I’m Isaac Udofia, specialized in building scalable APIs, custom Shopify themes, and high-performance web interfaces.
             </h2>
 
@@ -71,24 +95,22 @@ const Hero = () => {
             </Link>
           </div>
 
-          {/* BOTTOM RIGHT CARD: Animated Skills Ticker */}
+          {/* BOTTOM RIGHT CARD: Moderated Skills Ticker */}
           <div className="bg-[#121212] rounded-[40px] p-8 border border-gray-800/50 overflow-hidden">
             <p className="text-[#999999] text-[10px] font-bold uppercase tracking-[0.2em] mb-8">
-              Core Full-Stack Technologies
+              Core Technical Stack
             </p>
             
             <div className="relative flex overflow-x-hidden">
-              {/* Infinite Right-to-Left Slider */}
               <motion.div 
                 className="flex whitespace-nowrap gap-12 items-center"
                 animate={{ x: ["0%", "-100%"] }}
                 transition={{
                   ease: "linear",
-                  duration: 25,
+                  duration: 40, // Increased from 25 to 40 for a more moderate speed
                   repeat: Infinity,
                 }}
               >
-                {/* First Set of Skills */}
                 {techStack.map((tech, index) => (
                   <span 
                     key={index} 
@@ -97,7 +119,6 @@ const Hero = () => {
                     {tech}
                   </span>
                 ))}
-                {/* Duplicated Set for Seamless Looping */}
                 {techStack.map((tech, index) => (
                   <span 
                     key={`dup-${index}`} 
@@ -108,7 +129,6 @@ const Hero = () => {
                 ))}
               </motion.div>
 
-              {/* Professional Gradient Fades for Edges */}
               <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#121212] to-transparent z-10 pointer-events-none"></div>
               <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#121212] to-transparent z-10 pointer-events-none"></div>
             </div>

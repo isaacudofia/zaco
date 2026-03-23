@@ -2,43 +2,77 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { Eye } from 'lucide-react'; // Import the eye icon
 
-// 1. DYNAMIC DATA ARRAY
-// You can easily add or remove items here.
+// 1. DYNAMIC DATA ARRAY with links 
 const projectsData = [
-  { id: 1, category: 'Design', title: 'Mobile Application Design', image: '/project1.jpg' },
-  { id: 2, category: 'Game', title: 'Website Makeup Design', image: '/project2.jpg' },
-  { id: 3, category: 'Branding', title: 'Brand Identity and Motion Design', image: '/project3.jpg' },
-  { id: 4, category: 'Marketing', title: 'Social Media Strategy', image: '/project1.jpg' },
-  { id: 5, category: 'Design', title: 'Dashboard UI Kit', image: '/project2.jpg' },
-  { id: 6, category: 'Marketing', title: 'E-commerce Campaign', image: '/project3.jpg' },
+  { 
+    id: 1, 
+    category: 'Shopify', 
+    title: 'Custom Theme & SEO Optimization', 
+    image: '/project 1.png',
+    link: 'https://github.com/isaacudofia' // 
+  },
+  { 
+    id: 2, 
+    category: 'Full-Stack', 
+    title: 'Real-time Inventory System', 
+    image: '/project 2.png',
+    link: 'https://github.com/isaacudofia' // [cite: 20]
+  },
+  { 
+    id: 3, 
+    category: 'Backend', 
+    title: 'Scalable RESTful API & Microservices', 
+    image: '/project 2.png',
+    link: 'https://github.com/isaacudofia' // [cite: 27]
+  },
+  { 
+    id: 4, 
+    category: 'Full-Stack', 
+    title: 'Collaborative Document Editor', 
+    image: '/project 1.png',
+    link: 'https://github.com/isaacudofia' 
+  },
+  { 
+    id: 5, 
+    category: 'Backend', 
+    title: 'User Authentication System', 
+    image: '/project 2.png',
+    link: 'https://github.com/isaacudofia' 
+  },
+  { 
+    id: 6, 
+    category: 'Shopify', 
+    title: 'Logistics Website Implementation', 
+    image: '/project 3.png',
+    link: 'https://github.com/isaacudofia' 
+  },
 ];
 
-const categories = ['All', 'Design', 'Game', 'Branding', 'Marketing'];
+const categories = ['All', 'Shopify', 'Full-Stack', 'Backend'];
 
 export default function Works() {
   const [activeTab, setActiveTab] = useState('All');
 
-  // 2. FILTER LOGIC
   const filteredProjects = activeTab === 'All' 
     ? projectsData 
     : projectsData.filter(project => project.category === activeTab);
 
   return (
     <section className="max-w-7xl mx-auto px-6 py-10">
-      
-      {/* THE MAIN WRAPPER CARD (Matching Hero/Footer Style) */}
       <div className="bg-[#121212] rounded-[40px] border border-gray-800/40 p-8 md:p-16">
         
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">Works & Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">Works & Projects</h2>
           <p className="text-[#999999] max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            Check out some of my design projects, meticulously crafted with love and dedication.
+            A showcase of my engineering projects, focused on performance optimization and scalable code.
           </p>
         </div>
 
-        {/* 3. DYNAMIC TABS LOOP */}
+        {/* Category Tabs */}
         <div className="flex flex-wrap items-center justify-start gap-8 mb-12 border-b border-gray-800/20 pb-4">
           {categories.map((cat) => (
             <button
@@ -56,33 +90,47 @@ export default function Works() {
           ))}
         </div>
 
-        {/* 4. DYNAMIC PROJECTS GRID LOOP */}
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
-            <div key={project.id} className="group cursor-pointer">
-              {/* Image Card */}
+            <div key={project.id} className="group relative">
+              {/* Image Container with Overlay */}
               <div className="relative aspect-[1.3/1] rounded-[28px] overflow-hidden mb-5 border border-gray-800/30">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+                  className="object-cover group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
                 />
+                
+                {/* OVERLAY: Hidden by default (opacity-0), 
+                  becomes visible on group-hover.
+                */}
+                <Link 
+                  href={project.link}
+                  target="_blank"
+                  className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20"
+                >
+                  <div className="w-14 h-14 bg-[#121212] border border-gray-800/50 rounded-full flex items-center justify-center text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <Eye size={24} className="group-hover:text-[#f06543] transition-colors" />
+                  </div>
+                </Link>
               </div>
 
-              {/* Text Info */}
+              {/* Project Details */}
               <div className="px-1">
                 <span className="text-[#999999] text-[11px] uppercase tracking-[0.2em] font-bold">
                   {project.category}
                 </span>
-                <h3 className="text-white text-xl font-semibold mt-1 tracking-tight group-hover:text-[#f06543] transition-colors">
-                  {project.title}
-                </h3>
+                <Link href={project.link} target="_blank">
+                    <h3 className="text-white text-xl font-semibold mt-1 tracking-tight group-hover:text-[#f06543] transition-colors">
+                    {project.title}
+                    </h3>
+                </Link>
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
