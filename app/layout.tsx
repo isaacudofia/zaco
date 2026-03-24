@@ -6,6 +6,11 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Isaac's Portfolio",
   description: "Isaac's Portfolio",
+  icons: {
+    icon: "/profile pic.jpeg", // Point this to the file in your public folder
+    shortcut: "/profile pic.jpeg",
+    apple: "/profile pic.jpeg", // For iOS home screen bookmarks
+  },
 };
 
 export default function RootLayout({
