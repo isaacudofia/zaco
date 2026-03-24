@@ -5,7 +5,7 @@ import { useForm, ValidationError } from '@formspree/react';
 
 const Contact = () => {
   // Replace "xbjvnrvz" with your actual Formspree ID after registering https://formspree.io/f/mkoqdjbz
-  const [state, handleSubmit] = useForm("mkoqdjbz");
+  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORMSPREE_ID || "");
 
   return (
     <section id="contact" className="max-w-7xl mx-auto px-6 py-10">
