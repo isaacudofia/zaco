@@ -44,7 +44,7 @@ const Navbar = () => {
         
         {/* Logo */}
         <Link href="/" className="text-2xl font-bold tracking-tight text-white hover:text-[#f06543] transition-colors">
-          Isaac.
+          Isaac
         </Link>
 
         {/* DESKTOP NAVIGATION: Hidden on Mobile, Visible on md+ */}

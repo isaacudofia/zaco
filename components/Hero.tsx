@@ -8,7 +8,7 @@ import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa6";
 const Hero = () => {
   const techStack = [
     "Node.js", "React", "Next.js", "NestJS", "TypeScript", 
-    "Shopify", "PostgreSQL", "Docker", "Tailwind CSS", "Liquid"
+    "Shopify", "PostgreSQL", "MongoDB", "Express","Docker", "Tailwind CSS", "Liquid"
   ];
 
   const socialLinks = [
@@ -37,7 +37,7 @@ const Hero = () => {
         <div className="md:col-span-4 bg-[#121212] rounded-[40px] p-8 border border-gray-800/50 flex flex-col items-center text-center">
           <div className="relative w-full aspect-square bg-[#f06543] rounded-[40px] overflow-hidden mb-8">
             <Image 
-              src="/image 1.jpg" 
+              src="/profile pic.jpeg" 
               alt="Isaac Udofia" 
               fill
               className="object-cover brightness-110 object-top"
@@ -47,8 +47,8 @@ const Hero = () => {
           
           <h1 className="text-3xl font-bold mb-2 text-white">Isaac Udofia</h1>
           <p className="text-[#999999] text-sm mb-8 tracking-tight leading-relaxed">
-            Full-Stack Developer | 3+ Years Experience <br />
-            Node.js & Shopify Expert
+            Full-Stack Developer | JavaScript (Node.js/Nest.js) | <br />
+            Shopify Expert
           </p>
           
           <div className="flex gap-4">

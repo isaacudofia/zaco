@@ -113,7 +113,7 @@ const Contact = () => {
                     name="message"
                     rows={5}
                     required
-                    placeholder="Tell me about your project or role..." 
+                    placeholder="Drop me a message here..." 
                     className="w-full bg-[#121212] border border-gray-800/50 rounded-2xl px-6 py-4 text-white placeholder:text-gray-700 focus:outline-none focus:border-[#f06543] transition-all resize-none"
                   />
                   <ValidationError prefix="Message" field="message" errors={state.errors} className="text-[#f06543] text-xs mt-1" />

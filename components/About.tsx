@@ -29,7 +29,7 @@ const AboutSection = () => {
             whileHover={{ scale: 1.05 }}
           >
             <Image 
-              src="/image 1.jpg" 
+              src="/profile pic.jpeg" 
               alt="Isaac Godwin Udofia" 
               fill
               className="object-cover object-top"

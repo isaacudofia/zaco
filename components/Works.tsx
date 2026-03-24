@@ -3,30 +3,30 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Eye } from 'lucide-react'; // Import the eye icon
+import { Eye } from 'lucide-react';
 
-// 1. DYNAMIC DATA ARRAY with links 
+// 1. DYNAMIC DATA ARRAY with updated categories
 const projectsData = [
   { 
     id: 1, 
-    category: 'Shopify', 
-    title: 'Custom Theme & SEO Optimization', 
-    image: '/project 1.png',
-    link: 'https://github.com/isaacudofia' // 
+    category: 'Frontend', 
+    title: 'GitHub Follower Manager', 
+    image: '/project 2.png',
+    link: 'https://github-follower-check.netlify.app/' 
   },
   { 
     id: 2, 
-    category: 'Full-Stack', 
-    title: 'Real-time Inventory System', 
-    image: '/project 2.png',
-    link: 'https://github.com/isaacudofia' // [cite: 20]
+    category: 'Frontend', 
+    title: 'Logistics Website Implementation', 
+    image: '/Logistics.jpg',
+    link: 'https://github.com/isaacudofia' 
   },
   { 
     id: 3, 
     category: 'Backend', 
-    title: 'Scalable RESTful API & Microservices', 
-    image: '/project 2.png',
-    link: 'https://github.com/isaacudofia' // [cite: 27]
+    title: 'Scalable RESTful API & Authentication', 
+    image: '/nodeStore.jpg',
+    link: 'https://github.com/isaacudofia' 
   },
   { 
     id: 4, 
@@ -35,23 +35,9 @@ const projectsData = [
     image: '/project 1.png',
     link: 'https://github.com/isaacudofia' 
   },
-  { 
-    id: 5, 
-    category: 'Backend', 
-    title: 'User Authentication System', 
-    image: '/project 2.png',
-    link: 'https://github.com/isaacudofia' 
-  },
-  { 
-    id: 6, 
-    category: 'Shopify', 
-    title: 'Logistics Website Implementation', 
-    image: '/project 3.png',
-    link: 'https://github.com/isaacudofia' 
-  },
 ];
 
-const categories = ['All', 'Shopify', 'Full-Stack', 'Backend'];
+const categories = ['All', 'Frontend', 'Full-Stack', 'Backend'];
 
 export default function Works() {
   const [activeTab, setActiveTab] = useState('All');
@@ -103,9 +89,7 @@ export default function Works() {
                   className="object-cover group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
                 />
                 
-                {/* OVERLAY: Hidden by default (opacity-0), 
-                  becomes visible on group-hover.
-                */}
+                {/* OVERLAY */}
                 <Link 
                   href={project.link}
                   target="_blank"
