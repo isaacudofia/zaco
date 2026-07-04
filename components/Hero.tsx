@@ -47,8 +47,8 @@ const Hero = () => {
           
           <h1 className="text-3xl font-bold mb-2 text-white">Isaac Udofia</h1>
           <p className="text-[#999999] text-sm mb-8 tracking-tight leading-relaxed">
-            Shopify Developer & SEO Specialist | Software Engineer | <br />
-            Turning Traffic into Revenue
+            Shopify Developer & SEO Specialist | Software Engineer <br />
+            
           </p>
           
           <div className="flex gap-4">
