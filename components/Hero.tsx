@@ -37,7 +37,7 @@ const Hero = () => {
         <div className="md:col-span-4 bg-[#121212] rounded-[40px] p-8 border border-gray-800/50 flex flex-col items-center text-center">
           <div className="relative w-full aspect-square bg-[#f06543] rounded-[40px] overflow-hidden mb-8">
             <Image 
-              src="/profile pic.jpeg" 
+              src="/profile pic.png" 
               alt="Isaac Udofia" 
               fill
               className="object-cover brightness-110 object-top"
@@ -47,8 +47,8 @@ const Hero = () => {
           
           <h1 className="text-3xl font-bold mb-2 text-white">Isaac Udofia</h1>
           <p className="text-[#999999] text-sm mb-8 tracking-tight leading-relaxed">
-            Full-Stack Developer | JavaScript (Node.js/Nest.js) | <br />
-            Shopify Expert
+            Shopify Developer & SEO Specialist | Software Engineer | <br />
+            Turning Traffic into Revenue
           </p>
           
           <div className="flex gap-4">
@@ -72,7 +72,7 @@ const Hero = () => {
           {/* TOP RIGHT CARD */}
           <div className="bg-[#121212] rounded-[40px] p-10 border border-gray-800/50 flex flex-col justify-center flex-grow">
             <p className="text-[#999999] uppercase tracking-[0.2em] text-[10px] font-bold mb-4">
-              Frontend & Backend Software Engineer
+              Software Engineer | SEO Specialist
             </p>
             <h2 className="text-4xl md:text-5xl font-medium leading-[1.2] mb-6 text-white tracking-tight">
               I’m Isaac Udofia, specialized in building scalable APIs, custom Shopify themes, and high-performance web interfaces.
@@ -83,11 +83,11 @@ const Hero = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#36D399] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#36D399]"></span>
               </span>
-              <span className="text-[#999999] text-sm font-medium">Available for Full-Stack Roles</span>
+              <span className="text-[#999999] text-sm font-medium">Available for Software Engineering Roles</span>
             </div>
 
             <Link 
-              href="/ISAAC CV UPDATED.pdf" 
+              href="/Isaac's Resume.pdf" 
               target="_blank"
               className="inline-flex items-center justify-center gap-2 bg-[#f06543] text-white w-fit px-8 py-3 rounded-2xl font-semibold hover:bg-[#000000] transition-all border border-transparent hover:border-gray-800"
             >
