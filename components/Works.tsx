@@ -11,7 +11,7 @@ const projectsData = [
     id: 1, 
     category: 'Web Development', 
     title: 'ChopMenu', 
-    image: '/project 2.png',
+    image: '/chopmenu.png',
     link: 'https://chopmenu2.netlify.app/' 
   },
   { 
