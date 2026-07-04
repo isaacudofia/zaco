@@ -9,35 +9,28 @@ import { Eye } from 'lucide-react';
 const projectsData = [
   { 
     id: 1, 
-    category: 'Frontend', 
-    title: 'GitHub Follower Manager', 
+    category: 'Web Development', 
+    title: 'ChopMenu', 
     image: '/project 2.png',
-    link: 'https://github-follower-check.netlify.app/' 
+    link: 'https://chopmenu2.netlify.app/' 
   },
   { 
     id: 2, 
-    category: 'Frontend', 
-    title: 'Logistics Website Implementation', 
-    image: '/Logistics.jpg',
-    link: 'https://github.com/isaacudofia' 
-  },
-  { 
-    id: 3, 
-    category: 'Backend', 
+    category: 'Web Development', 
     title: 'Scalable RESTful API & Authentication', 
     image: '/nodeStore.jpg',
-    link: 'https://github.com/isaacudofia' 
+    link: 'https://github.com/isaacudofia/NODEJS-EXPRESS-JS-AUTHENTICATION-WITH-JWT' 
   },
   { 
     id: 4, 
-    category: 'Full-Stack', 
+    category: 'Web Development', 
     title: 'Collaborative Document Editor', 
     image: '/project 1.png',
-    link: 'https://github.com/isaacudofia' 
+    link: 'https://github.com/isaacudofia/COLLOBORATIVE-DOC-EDITOR' 
   },
 ];
 
-const categories = ['All', 'Frontend', 'Full-Stack', 'Backend'];
+const categories = ['All', 'Web Development', 'Graphics'];
 
 export default function Works() {
   const [activeTab, setActiveTab] = useState('All');
