@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+# Isaac Udofia
+### Full-Stack Developer | Shopify Expert
 
-First, run the development server:
+*Building scalable APIs, custom Shopify themes, and high-performance web interfaces.*
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[![](https://img.shields.io/badge/Portfolio-isaacudofia.netlify.app-blue?style=for-the-badge&logo=google-chrome)](https://isaacudofia.netlify.app)
+[![](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/isaacudofia)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+</div>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠 Tech Stack
 
-## Learn More
+| Category | Technologies |
+| :--- | :--- |
+| **Languages & Frameworks** | JavaScript, TypeScript, Node.js, Next.js, NestJS, Express |
+| **Frontend & Styling** | React, Tailwind CSS, Liquid |
+| **Databases** | PostgreSQL, MongoDB |
+| **Tools & Infrastructure** | Docker |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Highlights & Expertise
+*   **Full-Stack Engineering:** Experienced in building scalable, performant web applications from conception to deployment.
+*   **Shopify Specialist:** Skilled in developing custom themes and high-impact e-commerce solutions.
+*   **API Development:** Proven track record in designing robust RESTful APIs with secure authentication.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📂 Featured Projects
+*   **Collaborative Document Editor** – Real-time full-stack implementation.
+*   **Scalable RESTful API & Auth** – Secure, backend-focused architecture.
+*   **Logistics Website Implementation** – Frontend-driven logistics solution.
+*   **GitHub Follower Manager** – Frontend tool for developer workflow management.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📬 Let's Collaborate
+I am currently available for **full-time roles** or **specialized contract projects**.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*   **Portfolio:** [isaacudofia.netlify.app](https://isaacudofia.netlify.app)
+*   **Work Inquiries:** [Email me](mailto:your-email@example.com)
+
+---
+<div align="center">
+  <sub>Built with ❤️ by Isaac</sub>
+</div>
