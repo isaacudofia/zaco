@@ -1,139 +1,99 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa6";
+import { ArrowDownRight, Download, MapPin } from 'lucide-react';
+import { FaGithub, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa6';
+
+const socialLinks = [
+  { icon: FaLinkedinIn, href: 'https://linkedin.com/in/isaacudofia', label: 'LinkedIn' },
+  { icon: FaGithub, href: 'https://github.com/isaacudofia', label: 'GitHub' },
+  { icon: FaWhatsapp, href: 'https://wa.me/2348105707657', label: 'WhatsApp' },
+];
+
+const capabilities = [
+  { label: 'Frontend', value: 'React · Next.js' },
+  { label: 'Backend', value: 'Node.js · NestJS' },
+  { label: 'Commerce', value: 'Shopify · Liquid' },
+];
 
 const Hero = () => {
-  const techStack = [
-    "Node.js", "React", "Next.js", "NestJS", "TypeScript", 
-    "Shopify", "PostgreSQL", "MongoDB", "Express","Docker", "Tailwind CSS", "Liquid"
-  ];
-
-  const socialLinks = [
-    { 
-      Icon: FaLinkedinIn, 
-      href: "https://linkedin.com/in/isaacudofia", 
-      label: "LinkedIn" 
-    },
-    { 
-      Icon: FaWhatsapp, 
-      href: "https://wa.me/2348105707657", 
-      label: "WhatsApp" 
-    },
-    { 
-      Icon: FaGithub, 
-      href: "https://github.com/isaacudofia", 
-      label: "GitHub" 
-    }
-  ];
-
   return (
-    <section className="max-w-7xl mx-auto px-6 py-10">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 font-sans">
-        
-        {/* LEFT CARD: Profile Information */}
-        <div className="md:col-span-4 bg-[#121212] rounded-[40px] p-8 border border-gray-800/50 flex flex-col items-center text-center">
-          <div className="relative w-full aspect-square bg-[#f06543] rounded-[40px] overflow-hidden mb-8">
-            <Image 
-              src="/profile pic.png" 
-              alt="Isaac Udofia" 
-              fill
-              className="object-cover brightness-110 object-top"
-              priority 
-            />
-          </div>
-          
-          <h1 className="text-3xl font-bold mb-2 text-white">Isaac Udofia</h1>
-          <p className="text-[#999999] text-sm mb-8 tracking-tight leading-relaxed">
-            Shopify Developer & SEO Specialist | Software Engineer <br />
-            
-          </p>
-          
-          <div className="flex gap-4">
-            {socialLinks.map((social, index) => (
-              <Link 
-                key={index} 
-                href={social.href} 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-2xl bg-black border border-gray-800/50 flex items-center justify-center text-[#999999] hover:text-white hover:border-[#f06543] hover:bg-[#f06543]/10 transition-all duration-300"
-              >
-                <social.Icon size={20} />
+    <section className="mx-auto max-w-7xl px-3 pb-2 pt-5 sm:px-6 sm:pb-3 sm:pt-8 lg:pb-4 lg:pt-10">
+      <div className="card-glow overflow-hidden rounded-3xl border border-white/8 bg-[#121212] p-3 sm:p-5 lg:rounded-[36px] lg:p-6">
+        <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr] lg:gap-6">
+          <div className="flex flex-col justify-between px-3 py-6 sm:px-5 sm:py-8 lg:min-h-[31rem] lg:px-7 lg:py-9">
+            <div>
+              <div className="mb-6 flex flex-wrap items-center gap-x-5 gap-y-3">
+                <div className="flex items-center gap-3">
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#36d399] opacity-70" />
+                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#36d399]" />
+                  </span>
+                  <span className="text-xs font-medium text-[#b3b3b3] sm:text-sm">Available for new opportunities</span>
+                </div>
+                <span className="hidden h-4 w-px bg-white/10 sm:block" aria-hidden="true" />
+                <span className="flex items-center gap-2 text-xs text-white/40 sm:text-sm">
+                  <MapPin size={14} className="text-[#f06543]" aria-hidden="true" /> Lagos, Nigeria
+                </span>
+              </div>
+
+              <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.3em] text-[#f06543]">
+                Isaac Udofia · Software Engineer
+              </p>
+              <h1 className="max-w-3xl text-[clamp(2.25rem,5vw,4.1rem)] font-semibold leading-[1.01] tracking-[-0.05em] text-white text-balance">
+                Building digital products with clarity, craft, and scale.
+              </h1>
+              <p className="mt-5 max-w-xl text-sm leading-relaxed text-[#999999] sm:text-base">
+                I engineer dependable web products—from performant interfaces and Shopify storefronts to APIs that support real business growth.
+              </p>
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link href="/works" className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#f06543] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#f06543]/15 transition-colors hover:bg-[#d95332]">
+                Explore my work <ArrowDownRight size={18} aria-hidden="true" />
               </Link>
-            ))}
+              <Link href="/Isaac's Resume.pdf" target="_blank" className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">
+                View résumé <Download size={17} aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="theme-dark-content relative min-h-[25rem] overflow-hidden rounded-[22px] bg-[#f06543] sm:min-h-[30rem] lg:min-h-full lg:rounded-[28px]">
+            <Image
+              src="/profile pic.png"
+              alt="Isaac Udofia"
+              fill
+              sizes="(max-width: 1024px) 100vw, 38vw"
+              className="object-cover object-top"
+              priority
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent" />
+
+            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5">
+              <div>
+                <p className="text-lg font-semibold tracking-tight text-white">Isaac Udofia</p>
+                <p className="mt-1 text-sm text-white/60">Full-stack engineering · Shopify</p>
+              </div>
+              <div className="flex gap-2">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <Link key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/15 bg-black/25 text-white/70 backdrop-blur-md transition-all hover:border-[#f06543] hover:text-white">
+                      <Icon size={16} aria-hidden="true" />
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* RIGHT SIDE */}
-        <div className="md:col-span-8 flex flex-col gap-6">
-          
-          {/* TOP RIGHT CARD */}
-          <div className="bg-[#121212] rounded-[40px] p-10 border border-gray-800/50 flex flex-col justify-center flex-grow">
-            <p className="text-[#999999] uppercase tracking-[0.2em] text-[10px] font-bold mb-4">
-              Software Engineer | SEO Specialist
-            </p>
-            <h2 className="text-4xl md:text-5xl font-medium leading-[1.2] mb-6 text-white tracking-tight">
-              I’m Isaac Udofia, specialized in building scalable APIs, custom Shopify themes, and high-performance web interfaces.
-            </h2>
-
-            <div className="flex items-center gap-3 mb-8">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#36D399] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#36D399]"></span>
-              </span>
-              <span className="text-[#999999] text-sm font-medium">Available for Software Engineering Roles</span>
+        <div className="mt-4 grid overflow-hidden rounded-[20px] border border-white/8 bg-white/8 sm:grid-cols-3 lg:mt-6 lg:rounded-[24px]">
+          {capabilities.map((capability, index) => (
+            <div key={capability.label} className={`flex items-center justify-between gap-4 bg-[#161616] px-5 py-4 sm:block sm:px-6 sm:py-4 ${index > 0 ? 'border-t border-white/8 sm:border-l sm:border-t-0' : ''}`}>
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/30">{capability.label}</p>
+              <p className="text-sm font-medium text-[#b3b3b3] sm:mt-1.5">{capability.value}</p>
             </div>
-
-            <Link 
-              href="/Isaac's Resume.pdf" 
-              target="_blank"
-              className="inline-flex items-center justify-center gap-2 bg-[#f06543] text-white w-fit px-8 py-3 rounded-2xl font-semibold hover:bg-[#000000] transition-all border border-transparent hover:border-gray-800"
-            >
-              Download CV <span className="text-lg">↓</span>
-            </Link>
-          </div>
-
-          {/* BOTTOM RIGHT CARD: Moderated Skills Ticker */}
-          <div className="bg-[#121212] rounded-[40px] p-8 border border-gray-800/50 overflow-hidden">
-            <p className="text-[#999999] text-[10px] font-bold uppercase tracking-[0.2em] mb-8">
-              Core Technical Stack
-            </p>
-            
-            <div className="relative flex overflow-x-hidden">
-              <motion.div 
-                className="flex whitespace-nowrap gap-12 items-center"
-                animate={{ x: ["0%", "-100%"] }}
-                transition={{
-                  ease: "linear",
-                  duration: 40, // Increased from 25 to 40 for a more moderate speed
-                  repeat: Infinity,
-                }}
-              >
-                {techStack.map((tech, index) => (
-                  <span 
-                    key={index} 
-                    className="text-xl font-bold tracking-tighter text-white/20 uppercase hover:text-[#f06543] transition-colors cursor-default"
-                  >
-                    {tech}
-                  </span>
-                ))}
-                {techStack.map((tech, index) => (
-                  <span 
-                    key={`dup-${index}`} 
-                    className="text-xl font-bold tracking-tighter text-white/20 uppercase hover:text-[#f06543] transition-colors cursor-default"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </motion.div>
-
-              <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#121212] to-transparent z-10 pointer-events-none"></div>
-              <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#121212] to-transparent z-10 pointer-events-none"></div>
-            </div>
-          </div>
-
+          ))}
         </div>
       </div>
     </section>

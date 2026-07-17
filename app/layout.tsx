@@ -7,9 +7,9 @@ export const metadata: Metadata = {
   title: "Isaac's Portfolio",
   description: "Isaac's Portfolio",
   icons: {
-    icon: "/profile pic.jpeg", // Point this to the file in your public folder
-    shortcut: "/profile pic.jpeg",
-    apple: "/profile pic.jpeg", // For iOS home screen bookmarks
+    icon: "/profile pic.png",
+    shortcut: "/profile pic.png",
+    apple: "/profile pic.png",
   },
 };
 
@@ -19,13 +19,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      {/* Using bg-[#000000] for the exact background from the screenshot.
-        min-h-screen ensures the black covers the full height of the browser.
-      */}
-      <body className="bg-[#000000] min-h-screen flex flex-col antialiased">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');var s=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.dataset.theme=t||s}catch(e){document.documentElement.dataset.theme='dark'}})()`,
+          }}
+        />
+      </head>
+      <body className="min-h-screen flex flex-col antialiased overflow-x-hidden">
         <Navbar />
-        <main className="flex-grow">
+        <main className="flex-grow pt-2 sm:pt-4">
           {children}
         </main>
         <Footer />

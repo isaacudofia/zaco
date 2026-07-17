@@ -1,2 +1,175 @@
 @import "tailwindcss";
 
+:root {
+  color-scheme: dark;
+  --background: #080808;
+  --surface: #121212;
+  --surface-raised: #181818;
+  --accent: #f06543;
+  --muted: #a3a3a3;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --background: #f2f1ee;
+  --surface: #ffffff;
+  --surface-raised: #f7f6f3;
+  --accent: #df5837;
+  --muted: #656565;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 50% -20%, rgba(240, 101, 67, 0.12), transparent 34rem),
+    var(--background);
+  color: white;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black, transparent 75%);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.card-glow {
+  position: relative;
+  isolation: isolate;
+}
+
+.card-glow::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  content: "";
+  background: radial-gradient(circle at 85% 10%, rgba(240, 101, 67, 0.12), transparent 32%);
+  pointer-events: none;
+}
+
+.theme-icon-light {
+  display: none;
+}
+
+:root[data-theme="light"] .theme-icon-light {
+  display: block;
+}
+
+:root[data-theme="light"] .theme-icon-dark {
+  display: none;
+}
+
+:root[data-theme="light"] body {
+  background:
+    radial-gradient(circle at 50% -20%, rgba(223, 88, 55, 0.1), transparent 34rem),
+    var(--background);
+}
+
+:root[data-theme="light"] body::before {
+  opacity: 0.3;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+:root[data-theme="light"] [class~="bg-[#121212]"],
+:root[data-theme="light"] [class~="bg-[#121212]/90"],
+:root[data-theme="light"] [class~="bg-[#111]/90"] {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+:root[data-theme="light"] [class~="bg-[#151515]"],
+:root[data-theme="light"] [class~="bg-[#161616]"],
+:root[data-theme="light"] [class~="bg-[#171717]"],
+:root[data-theme="light"] [class~="bg-[#181818]"],
+:root[data-theme="light"] [class~="bg-[#181818]/80"],
+:root[data-theme="light"] [class~="bg-[#181818]/85"] {
+  background-color: #f8f7f4 !important;
+}
+
+:root[data-theme="light"] [class~="text-white"] {
+  color: #181818 !important;
+}
+
+:root[data-theme="light"] [class*="text-white/"] {
+  color: #747474 !important;
+}
+
+:root[data-theme="light"] [class~="text-[#999999]"],
+:root[data-theme="light"] [class~="text-[#b3b3b3]"],
+:root[data-theme="light"] [class~="text-[#888]"],
+:root[data-theme="light"] [class~="text-[#777]"] {
+  color: #656565 !important;
+}
+
+:root[data-theme="light"] [class*="border-white/"] {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+:root[data-theme="light"] [class*="bg-white/"] {
+  background-color: rgba(0, 0, 0, 0.035) !important;
+}
+
+:root[data-theme="light"] [class~="bg-[#f06543]"] {
+  background-color: var(--accent) !important;
+  color: white !important;
+}
+
+:root[data-theme="light"] .theme-toggle {
+  color: #555 !important;
+}
+
+:root[data-theme="light"] .theme-dark-content,
+:root[data-theme="light"] .theme-dark-content [class~="text-white"],
+:root[data-theme="light"] .theme-dark-content [class*="text-white/"] {
+  color: white !important;
+}
+
+:root[data-theme="light"] input,
+:root[data-theme="light"] textarea {
+  color: #181818 !important;
+}
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

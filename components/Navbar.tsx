@@ -1,111 +1,114 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
+
+const navLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'Experience', href: '/experience' },
+  { name: 'Services', href: '/services' },
+  { name: 'Works', href: '/works' },
+];
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const menuRef = useRef<HTMLDivElement>(null);
+  const navigationRef = useRef<HTMLDivElement>(null);
 
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Services', href: '/services' },
-    { name: 'Works', href: '/works' },
-    { name: 'Contact', href: '/contact' },
-  ];
-
-  // 1. CLICK OUTSIDE LOGIC
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+    if (!isOpen) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (navigationRef.current && !navigationRef.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
     };
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsOpen(false);
+    };
+
+    document.addEventListener('pointerdown', handlePointerDown);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('pointerdown', handlePointerDown);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, [isOpen]);
 
-  // 2. FIXED ROUTE CHANGE: Only triggers if the menu is actually open
-  useEffect(() => {
-    if (isOpen) {
-      setIsOpen(false);
-    }
-  }, [pathname]); // Removed isOpen from deps to strictly trigger on path change
-
   return (
-    <nav className="w-full px-6 pt-6 relative z-[999]"> 
-      <div className="max-w-7xl mx-auto flex items-center justify-between py-5 px-8 bg-[#121212] rounded-[24px] border border-gray-800/40 relative">
-        
-        {/* Logo */}
-        <Link href="/" className="text-2xl font-bold tracking-tight text-white hover:text-[#f06543] transition-colors">
-          Isaac
+    <nav className="sticky top-0 z-50 w-full px-3 pt-3 sm:px-6 sm:pt-4" aria-label="Main navigation">
+      <div ref={navigationRef} className="relative mx-auto grid max-w-7xl grid-cols-[1fr_auto] items-center rounded-[20px] border border-white/8 bg-[#111]/90 px-4 py-3.5 shadow-xl shadow-black/20 backdrop-blur-xl md:grid-cols-[1fr_auto_1fr] md:px-6">
+        <Link href="/" onClick={() => setIsOpen(false)} className="group w-fit" aria-label="Isaac Udofia — home">
+          <span className="block text-[1.4rem] font-bold leading-none tracking-[-0.055em] text-white transition-colors group-hover:text-white/75">
+            Isaac<span className="text-[#f06543]">.</span>
+          </span>
         </Link>
 
-        {/* DESKTOP NAVIGATION: Hidden on Mobile, Visible on md+ */}
-        <div className="hidden md:flex items-center space-x-8 text-sm font-medium">
+        <div className="hidden items-center gap-7 md:flex lg:gap-9">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
+
             return (
-              <Link 
-                key={link.name} 
-                href={link.href} 
-                className={`${
-                  isActive ? 'text-[#f06543]' : 'text-gray-400 hover:text-white'
-                } transition-colors`}
+              <Link
+                key={link.name}
+                href={link.href}
+                aria-current={isActive ? 'page' : undefined}
+                className={`relative py-2 text-xs font-medium transition-colors ${
+                  isActive
+                    ? 'text-white'
+                    : 'text-white/45 hover:text-white/80'
+                }`}
               >
                 {link.name}
+                {isActive && <span className="absolute inset-x-0 -bottom-0.5 mx-auto h-0.5 w-4 rounded-full bg-[#f06543]" aria-hidden="true" />}
               </Link>
             );
           })}
         </div>
 
-        {/* Right Section */}
-        <div className="flex items-center gap-4">
-          <Link 
-            href="/contact"
-            className="hidden sm:flex border border-gray-800 rounded-full px-6 py-2 text-sm font-medium text-white hover:bg-[#f06543] hover:border-[#f06543] transition-all items-center gap-2"
-          >
-            Hire Me <ArrowUpRight size={14} />
-          </Link>
+        <div className="hidden justify-self-end md:block">
+          <ThemeToggle />
+        </div>
 
-          {/* MOBILE TOGGLE: Only visible on small screens */}
-          <button 
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-[#1a1a1a] border border-gray-800 text-gray-400 hover:text-white transition-all outline-none"
+        <div className="flex items-center justify-self-end gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            onClick={() => setIsOpen((open) => !open)}
+            className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/8 bg-white/[0.035] text-white/60 transition-colors hover:text-white"
+            aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={isOpen}
+            aria-controls="mobile-navigation"
           >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
+            {isOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
           </button>
         </div>
 
-        {/* MOBILE DROPDOWN */}
         {isOpen && (
-          <div 
-            ref={menuRef}
-            className="md:hidden absolute top-[115%] right-0 w-64 bg-[#1a1a1a] border border-gray-800/60 rounded-3xl shadow-2xl py-4 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 z-[1000]"
-          >
-            <div className="flex flex-col">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link 
-                    key={link.name} 
-                    href={link.href} 
-                    className={`px-8 py-4 text-sm font-medium transition-all flex items-center justify-between group ${
-                      isActive ? 'text-[#f06543] bg-white/5' : 'text-gray-400 hover:text-white hover:bg-white/5'
-                    }`}
-                  >
-                    {link.name}
-                    {isActive && <div className="w-1.5 h-1.5 rounded-full bg-[#f06543]" />}
-                  </Link>
-                );
-              })}
-            </div>
+          <div id="mobile-navigation" className="absolute left-0 right-0 top-[calc(100%+0.6rem)] overflow-hidden rounded-[20px] border border-white/10 bg-[#151515] p-2 shadow-2xl shadow-black/50 md:hidden">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  aria-current={isActive ? 'page' : undefined}
+                  className={`flex items-center justify-between rounded-xl px-4 py-3.5 text-sm font-medium transition-colors ${
+                    isActive ? 'bg-white/[0.06] text-white' : 'text-white/50 hover:bg-white/[0.035] hover:text-white'
+                  }`}
+                >
+                  {link.name}
+                  <span className={`h-1.5 w-1.5 rounded-full ${isActive ? 'bg-[#f06543]' : 'bg-white/15'}`} aria-hidden="true" />
+                </Link>
+              );
+            })}
           </div>
         )}
       </div>
